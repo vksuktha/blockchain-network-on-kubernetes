@@ -33,7 +33,7 @@ kubectl create -f ${KUBECONFIG_FOLDER}/copyArtifactsJob.yaml
 
 sleep 5
 pod=$(kubectl get pods  --show-all --selector=job-name=copyartifacts --output=jsonpath={.items..metadata.name})
-kubectl cp ./artifacts $pod:/shared
+kubectl cp ./artifacts $pod:/shared/
 
 echo "Waiting for 10 more seconds for copying artifacts to avoid any network delay"
 sleep 10
